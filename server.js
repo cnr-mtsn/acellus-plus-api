@@ -5,6 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+// is this tracking with git/heroku?
 // defining the Express app
 const app = express();
 
@@ -14,8 +15,8 @@ const people = [
 		id: 0,
 		name: "Conner Matson",
 		age: 26,
-		title: "Computer Wizard"
-	}
+		title: "Computer Wizard",
+	},
 ];
 
 // adding Helmet to enhance your API's security
