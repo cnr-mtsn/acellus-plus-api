@@ -14,18 +14,7 @@ const app = express();
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(cors());
-app.use(
-	morgan(
-		JSON.stringify({
-			origin: "@:remote-addr",
-			method: ":method",
-			url: ":url",
-			status: ":status",
-			time: ":total-time",
-			device: ":user-agent",
-		})
-	)
-);
+app.use(morgan("@:remote-addr | :method | :url | :status | in :total-time ms | :user-agent"));
 
 // importing arrays to act as db -temporary solution
 
