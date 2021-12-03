@@ -4,44 +4,39 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const port = process.env.PORT || 4000;
 
-// is this tracking with git/heroku?
-// defining the Express app
 const app = express();
-
-// defining an array to work as the database (temporary solution)
-const people = [
-	{
-		id: 0,
-		name: "Conner Matson",
-		age: 26,
-		title: "Computer Wizard",
-	},
-];
-
 // adding Helmet to enhance your API's security
-app.use(helmet());
-
 // using bodyParser to parse JSON bodies into JS objects
-app.use(bodyParser.json());
-
 // enabling CORS for all requests
-app.use(cors());
-
 // adding morgan to log HTTP requests
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(cors());
 app.use(morgan("combined"));
 
-// defining an endpoint to return all data
-app.get("/api", (req, res) => {
-	res.send(people);
+// importing arrays to act as db -temporary solution
+const courses = require("./schema/courses");
+const resources = require("./schema/resources");
+const textbook = require("./schema/textbooks");
+/****** API ROUTES  ******/
+
+// return courses
+app.get("/api/courses", (req, res) => {
+	res.send(courses);
+});
+// return resources
+app.get("/api/resources", (req, res) => {
+	res.send(resources);
+});
+// return resources
+app.get("/api/textbook", (req, res) => {
+	res.send(textbook);
 });
 
-app.post("/api/createPerson", (req, res) => {
-	var newPerson = req.body;
-	people.push(newPerson);
-	res.json(people);
-});
-const port = process.env.PORT || 4000;
+/****** API ROUTES  ******/
+
 // starting the server
 app.listen(port, () => {
 	console.log(`listening on port ${port}`);

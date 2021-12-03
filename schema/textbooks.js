@@ -1,0 +1,121 @@
+const physicsBook = {
+	name: "University Physics with Modern Physics",
+	author: ["Hugh D. Young", "Roger A. Freedman"],
+	chapters: [
+		{
+			title: "Units, Physical Quantities, and Vectors",
+			number: 1,
+			text: "Do exercitation Lorem ullamco nulla. Minim anim ipsum ad aute labore. Minim Lorem incididunt duis magna velit magna aliquip deserunt esse amet do velit irure. Ex proident eiusmod sit deserunt est reprehenderit mollit officia occaecat commodo aliquip. Deserunt aute laborum et et labore in. Sit quis culpa dolore dolor fugiat officia est. Ipsum qui sit dolor dolore consectetur Lorem exercitation deserunt incididunt amet laboris pariatur.",
+			image: "https://picsum.photos/id/10/600/300",
+		},
+		{
+			title: "Motion Along a Straight Line",
+			number: 2,
+			text: "Mollit Lorem nisi labore nulla ullamco et ullamco qui. Culpa do labore tempor velit dolor excepteur aliqua sunt esse ut. Laborum ullamco et labore qui pariatur nulla Lorem in amet ea amet sit voluptate. Laboris do ipsum deserunt fugiat aliquip.",
+			image: "https://picsum.photos/id/100/600/300",
+		},
+		{
+			title: "Motion in Two or Three Dimensions",
+			number: 3,
+			text: "Aliquip deserunt eu nulla incididunt Lorem do veniam minim Lorem ut culpa. In voluptate aliqua do tempor dolore et tempor ad exercitation ipsum eiusmod. Eiusmod eiusmod veniam minim laboris ad irure. Nisi incididunt non ea occaecat quis officia veniam adipisicing ea. Lorem amet incididunt laborum aliquip anim.",
+			image: "https://picsum.photos/id/1002/600/300",
+		},
+		{
+			title: "Newton's Laws of Motion",
+			number: 4,
+			text: "Ipsum aliqua adipisicing cupidatat minim enim ad adipisicing dolor ullamco eu. Ea non esse id cillum ullamco ex cupidatat culpa est. Cupidatat laborum duis veniam sit exercitation anim occaecat duis amet. Cupidatat adipisicing Lorem velit tempor exercitation commodo exercitation sunt.",
+			image: "https://picsum.photos/id/1015/600/300",
+		},
+		{
+			title: "Applying Newton's Laws",
+			number: 5,
+			text: "Nisi consequat culpa adipisicing enim veniam aute. Enim cillum aute nulla esse elit. Enim incididunt exercitation anim amet laboris excepteur.",
+			image: "https://picsum.photos/id/1016/600/300",
+		},
+		{
+			title: "Potential Energy and Energy Conservation",
+			number: 6,
+			text: "Lorem ad et commodo nostrud. Id tempor quis tempor ex commodo velit esse. Sunt nostrud magna fugiat nostrud in. Excepteur sint pariatur velit incididunt veniam mollit officia exercitation exercitation sint quis.",
+			image: "https://picsum.photos/id/1018/600/300",
+		},
+		{
+			title: "Momentum, Impulse, and Collisions",
+			number: 7,
+			text: "Cupidatat elit nisi mollit esse dolor id id commodo magna Lorem commodo officia occaecat exercitation. Sint voluptate amet labore ex elit. Occaecat adipisicing minim aliqua esse irure.",
+			image: "https://picsum.photos/id/1019/600/300",
+		},
+		{
+			title: "Rotation of Rigid Bodies",
+			number: 8,
+			text: "Ipsum deserunt id eu nulla laborum dolore occaecat ipsum minim. Excepteur enim magna labore adipisicing culpa do magna officia. Qui velit irure dolore ad in mollit ex velit do. Anim fugiat excepteur consectetur quis enim culpa eu. Magna ullamco labore in Lorem. Ad adipisicing sunt officia sit do consequat ea proident. Do id id eu consequat dolor nostrud officia.",
+			image: "https://picsum.photos/id/1020/600/300",
+		},
+		{
+			title: "Dynamics of Rotational Motion",
+			number: 9,
+			text: "Tempor non voluptate voluptate duis ut consequat id nulla eu nulla veniam est elit in. Duis dolore duis ex adipisicing non consectetur est dolore velit cupidatat consectetur ea velit ex. Duis anim est officia elit laboris. Et aute aliquip pariatur exercitation enim do tempor deserunt ipsum ex excepteur deserunt proident sit. Commodo anim fugiat anim sunt adipisicing consectetur. Anim occaecat dolore reprehenderit dolore nisi reprehenderit laborum reprehenderit adipisicing non. Consectetur ut nulla et enim.",
+			image: "https://picsum.photos/id/1021/600/300",
+		},
+		{
+			title: "Equilibrium and Elasticity",
+			number: 10,
+			text: "Nulla id reprehenderit culpa occaecat sint. Dolor reprehenderit ad pariatur excepteur in do commodo ullamco culpa. Aute eu ad sunt cupidatat. Commodo eiusmod officia cupidatat eiusmod ipsum officia. Esse aliqua velit nisi officia exercitation sunt ullamco anim. Lorem sint do cillum cillum sit.",
+			image: "https://picsum.photos/id/1022/600/300",
+		},
+		{
+			title: "Fluid Mechanics",
+			number: 11,
+			text: "Consequat minim magna ut fugiat laboris. Cupidatat incididunt aute velit qui ad nulla. Laboris officia do non qui esse sit non. Est culpa qui irure velit ea magna.",
+			image: "https://picsum.photos/id/1024/600/300",
+		},
+		{
+			title: "Gravitation",
+			number: 12,
+			text: "Magna in do sunt pariatur consectetur Lorem ad eu. Quis amet enim velit proident excepteur laboris culpa cillum. Consequat quis eiusmod id aliquip labore sunt ipsum excepteur quis. Labore aliqua aute aute cillum mollit amet aute sunt.",
+			image: "https://picsum.photos/id/1026/600/300",
+		},
+		{
+			title: "Periodic Motion",
+			number: 13,
+			text: "In officia occaecat consequat adipisicing. Cillum voluptate commodo incididunt nostrud veniam magna pariatur est enim. Lorem mollit culpa ipsum ex est veniam incididunt sint quis qui Lorem proident. Anim qui occaecat dolor in non ex ut. Sit dolore minim pariatur quis.",
+			image: "https://picsum.photos/id/1032/600/300",
+		},
+		{
+			title: "Mechanical Waves",
+			number: 14,
+			text: "Amet reprehenderit occaecat amet laborum in in irure tempor amet commodo et commodo quis Lorem. Laboris in culpa ea cillum ipsum dolor nulla amet excepteur et nostrud sunt duis aute. Minim laborum labore ut dolor ut id cillum elit ea nulla culpa. Duis eu occaecat enim et. Consectetur anim cillum veniam aliquip exercitation qui pariatur magna.",
+			image: "https://picsum.photos/id/1036/600/300",
+		},
+		{
+			title: "Sound and Hearing",
+			number: 15,
+			text: "Id enim duis qui tempor ullamco est non irure sunt voluptate Lorem aliqua ipsum. Deserunt consectetur sint occaecat et in Lorem sunt pariatur consectetur duis et fugiat consequat cillum. Amet proident ullamco aute duis occaecat consectetur Lorem fugiat. Ea id laboris tempor nulla.",
+			image: "https://picsum.photos/id/1037/600/300",
+		},
+		{
+			title: "Temperature and Heat",
+			number: 16,
+			text: "Tempor deserunt eiusmod excepteur dolor ex pariatur cupidatat fugiat. Officia non in exercitation laborum duis. Consequat ipsum sit dolor ullamco eu culpa ipsum ut exercitation Lorem ullamco. Enim excepteur consectetur non cillum in elit. Quis veniam ex excepteur adipisicing minim veniam. Aliquip cupidatat ad dolor anim in ipsum consectetur cillum nisi magna ex. Nostrud id mollit veniam irure exercitation est occaecat ad anim.",
+			image: "https://picsum.photos/id/1043/600/300",
+		},
+		{
+			title: "Thermal Properties of Matter",
+			number: 17,
+			text: "Occaecat laboris et voluptate non reprehenderit. Duis ad irure Lorem cupidatat nostrud et enim consectetur dolor et cupidatat sit. Quis exercitation amet eu qui.",
+			image: "https://picsum.photos/id/1051/600/300",
+		},
+		{
+			title: "The First Law of Thermodynamics",
+			number: 18,
+			text: "Duis enim voluptate laboris velit consectetur nisi laboris dolor in aute excepteur. Laborum ipsum eu nostrud anim culpa ullamco esse cillum velit nisi consequat proident irure. Anim magna occaecat nostrud proident irure et ea dolor Lorem.",
+			image: "https://picsum.photos/id/1057/600/300",
+		},
+		{
+			title: "The Second Law of Thermodynamics",
+			number: 19,
+			text: "Proident ea irure in esse et ullamco dolor adipisicing id do. Sit ad sunt anim officia consectetur eu nulla amet exercitation cillum incididunt id sunt commodo. Ut nostrud dolore sit eiusmod dolore quis ea id commodo sunt velit veniam fugiat.",
+			image: "https://picsum.photos/id/1061/600/300",
+		},
+	],
+};
+module.exports = physicsBook;
