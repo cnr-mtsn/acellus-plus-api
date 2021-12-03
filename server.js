@@ -40,8 +40,8 @@ app.post("/api/createPerson", (req, res) => {
 	people.push(newPerson);
 	res.json(people);
 });
-
+const port = process.env.PORT || 4000;
 // starting the server
-app.listen(4000, () => {
-	console.log("listening on port 4000");
+app.listen(port, () => {
+	console.log(`listening on port ${port}`);
 });
