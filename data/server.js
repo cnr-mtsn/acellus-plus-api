@@ -28,11 +28,14 @@ app.use(
 );
 
 // importing arrays to act as db -temporary solution
-const courses = require("./schema/courses");
-const resources = require("./schema/resources");
-const textbook = require("./schema/textbooks");
-/****** API ROUTES  ******/
 
+const courses = require("../schema/courses");
+const resources = require("../schema/resources");
+const textbook = require("../schema/textbooks");
+/****** API ROUTES  ******/
+app.get("/", (req, res) => {
+	res.sendFile("/index.html", { root: "../client" });
+});
 // return courses
 app.get("/api/courses", (req, res) => {
 	res.send(courses);
