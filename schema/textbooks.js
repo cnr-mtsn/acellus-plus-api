@@ -1,5 +1,5 @@
 const physicsBook = {
-	name: "University Physics with Modern Physics",
+	title: "University Physics with Modern Physics",
 	author: ["Hugh D. Young", "Roger A. Freedman"],
 	chapters: [
 		{
