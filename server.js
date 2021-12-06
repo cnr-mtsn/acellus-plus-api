@@ -56,6 +56,6 @@ app.get("/api/textbook", (req, res) => {
 /****** API ROUTES  ******/
 
 // starting the server
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
 	console.log(`listening at [ http://localhost:4000 ]`);
 });
