@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<title>Acellus Plus API</title>
+	</head>
+	<body class="flex flex-col items-center w-screen h-screen bg-gradient-to-br from-blue-900 to-gray-800">
+		<header class="bg-white bg-opacity-10 py-4 flex items-center justify-center w-full px-8">
+			<img src="./images/acellus-logo.png" alt="Acellus Logo" class="h-20" />
+			<span class="text-white font-bold text-3xl mb-8">&plus;</span>
+		</header>
+		<main class="flex w-full justify-center py-16 px-40">
+			<div class="flex flex-col items-center gap-8 bg-white bg-opacity-10 w-auto h-auto p-10 rounded-lg">
+				<h1 class="sm:text-3xl text-gray-300">Welcome to our Mock API &#128075;</h1>
+				<div class="flex flex-col items-center gap-2 w-full">
+					<div class="flex gap-4 items-center justify-center w-full">
+						<a class="text-blue-400 font-semibold sm:text-xl hover:text-blue-800" href="/api/courses">/api/courses</a>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="#ffffff">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+						</svg>
+						<span class="text-gray-300">gets all courses</span>
+					</div>
+					<div class="flex gap-4 items-center justify-center w-full">
+						<a class="text-blue-400 font-semibold sm:text-xl hover:text-blue-800" href="/api/resources">/api/resources</a>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="#ffffff">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+						</svg>
+						<span class="text-gray-300">gets all resources</span>
+					</div>
+					<div class="flex gap-4 items-center justify-center w-full">
+						<a class="text-blue-400 font-semibold sm:text-xl hover:text-blue-800" href="/api/textbook">/api/textbook</a>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="#ffffff">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+						</svg>
+						<span class="text-gray-300">gets all textbooks</span>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
