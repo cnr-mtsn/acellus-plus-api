@@ -72,7 +72,7 @@ app.get('/images/favicon-16x16.png', (req, res) => {
 app.get('/images/favicon-32x32.png', (req, res) => {
 	res.sendFile('./images/favicon-32x32.png', { root: __dirname});
 })
-app.get('/images/favicon.ico', (req, res) => {
+app.get('/favicon.ico', (req, res) => {
 	res.sendFile('./images/favicon.ico', { root: __dirname});
 })
 app.get('/images/acellus-logo.png', (req, res) => {
