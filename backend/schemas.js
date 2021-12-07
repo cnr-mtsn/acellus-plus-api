@@ -164,4 +164,9 @@ const courseSchema = new Schema({
 		},
 	],
 });
-module.exports = { courseSchema, resourceSchema, textbookSchema };
+const feedbackSchema = new Schema({
+	name: String,
+	message: String,
+	date: String,
+});
+module.exports = { courseSchema, resourceSchema, textbookSchema, feedbackSchema };

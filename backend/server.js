@@ -6,20 +6,23 @@ const morgan = require("morgan");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const { resourceSchema, courseSchema, textbookSchema } = require("./schemas");
+const { resourceSchema, courseSchema, textbookSchema, feedbackSchema } = require("./schemas");
 
 const app = express();
 app.use(cors());
 app.use(helmet());
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan("[@:remote-addr] => [:method :url] => [status: :status] => [in :total-time ms] "));
 
 mongoose.connect(
-	process.env.MONGO_DB_URI || "mongodb+srv://conner:qea7VEF7cve3fwq.gzk@acellus-plus-db-dev.z2tdi.mongodb.net/acellus-plus-db-dev?retryWrites=true&w=majority"
+	process.env.MONGO_DB_URI ||
+		"mongodb+srv://conner:qea7VEF7cve3fwq.gzk@acellus-plus-db-dev.z2tdi.mongodb.net/acellus-plus-db-dev?retryWrites=true&w=majority"
 );
 const Courses = mongoose.model("courses", courseSchema);
 const Resources = mongoose.model("resources", resourceSchema);
 const Textbooks = mongoose.model("textbooks", textbookSchema);
+const Feedback = mongoose.model("feedback", feedbackSchema);
 
 /****** API ROUTES  ******/
 app.get("/", (req, res) => {
@@ -55,6 +58,28 @@ app.get("/api/textbook", (req, res) => {
 		}
 	});
 });
+// return feedback messages
+app.get("/api/feedback", (req, res) => {
+	Feedback.find({}, (err, result) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.send(result);
+		}
+	});
+});
+app.post("/api/postFeedback", (req, res) => {
+	console.log(req.body);
+	const newFeedback = new Feedback(req.body);
+	newFeedback.save((err, result) => {
+		if (err) {
+			res.send({ message: "Feedback could not be submitted - please try again later" });
+		} else {
+			res.send({ message: "Feedback Recieved! Thank you for helping us improve the platform." });
+		}
+	});
+});
+// comment
 /****** API ROUTES  ******/
 
 /*** IMAGES ***/
