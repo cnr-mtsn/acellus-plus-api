@@ -78,6 +78,9 @@ app.get('/favicon.ico', (req, res) => {
 app.get('/images/acellus-logo.png', (req, res) => {
 	res.sendFile('./images/acellus-logo.png', {root: __dirname})
 })
+app.get('/images/blue-background.jpg', (req, res) => {
+	res.sendFile('./images/blue-background.jpg', {root: __dirname})
+})
 
 
 // starting the server
