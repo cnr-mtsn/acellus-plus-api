@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(morgan("[@:remote-addr] => [:method :url] => [status: :status] => [in :total-time ms] "));
 
-mongoose.connect(process.env.MONGO_DB_URL);
+mongoose.connect(process.env.MONGO_DB_URI);
 const Courses = mongoose.model("courses", courseSchema);
 const Resources = mongoose.model("resources", resourceSchema);
 const Textbooks = mongoose.model("textbooks", textbookSchema);
@@ -55,33 +55,31 @@ app.get("/api/textbook", (req, res) => {
 });
 /****** API ROUTES  ******/
 
-
 /*** IMAGES ***/
-app.get('/images/android-chrome-192x192.png', (req, res) => {
-	res.sendFile('./images/android-chrome-192x192.png', { root: __dirname});
-})
-app.get('/images/android-chrome-192x192.png', (req, res) => {
-	res.sendFile('./images/android-chrome-192x192.png', { root: __dirname});
-})
-app.get('/images/apple-touch-icon.png', (req, res) => {
-	res.sendFile('./images/apple-touch-icon.png', { root: __dirname});
-})
-app.get('/images/favicon-16x16.png', (req, res) => {
-	res.sendFile('./images/favicon-16x16.png', { root: __dirname});
-})
-app.get('/images/favicon-32x32.png', (req, res) => {
-	res.sendFile('./images/favicon-32x32.png', { root: __dirname});
-})
-app.get('/favicon.ico', (req, res) => {
-	res.sendFile('./images/favicon.ico', { root: __dirname});
-})
-app.get('/images/acellus-logo.png', (req, res) => {
-	res.sendFile('./images/acellus-logo.png', {root: __dirname})
-})
-app.get('/images/blue-background.jpg', (req, res) => {
-	res.sendFile('./images/blue-background.jpg', {root: __dirname})
-})
-
+app.get("/images/android-chrome-192x192.png", (req, res) => {
+	res.sendFile("./images/android-chrome-192x192.png", { root: __dirname });
+});
+app.get("/images/android-chrome-192x192.png", (req, res) => {
+	res.sendFile("./images/android-chrome-192x192.png", { root: __dirname });
+});
+app.get("/images/apple-touch-icon.png", (req, res) => {
+	res.sendFile("./images/apple-touch-icon.png", { root: __dirname });
+});
+app.get("/images/favicon-16x16.png", (req, res) => {
+	res.sendFile("./images/favicon-16x16.png", { root: __dirname });
+});
+app.get("/images/favicon-32x32.png", (req, res) => {
+	res.sendFile("./images/favicon-32x32.png", { root: __dirname });
+});
+app.get("/favicon.ico", (req, res) => {
+	res.sendFile("./images/favicon.ico", { root: __dirname });
+});
+app.get("/images/acellus-logo.png", (req, res) => {
+	res.sendFile("./images/acellus-logo.png", { root: __dirname });
+});
+app.get("/images/blue-background.jpg", (req, res) => {
+	res.sendFile("./images/blue-background.jpg", { root: __dirname });
+});
 
 // starting the server
 app.listen(process.env.PORT || 4000, () => {
