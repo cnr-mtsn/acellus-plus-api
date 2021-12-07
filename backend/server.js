@@ -79,7 +79,6 @@ app.post("/api/postFeedback", (req, res) => {
 		}
 	});
 });
-// comment
 /****** API ROUTES  ******/
 
 /*** IMAGES ***/
