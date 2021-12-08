@@ -16,8 +16,7 @@ app.use(bodyParser.json());
 app.use(morgan("[@:remote-addr] => [:method :url] => [status: :status] => [in :total-time ms] "));
 
 mongoose.connect(
-	process.env.MONGO_DB_URI ||
-		"mongodb+srv://conner:qea7VEF7cve3fwq.gzk@acellus-plus-db-dev.z2tdi.mongodb.net/acellus-plus-db-dev?retryWrites=true&w=majority"
+	"mongodb+srv://conner:qea7VEF7cve3fwq.gzk@acellus-plus-db-dev.z2tdi.mongodb.net/acellus-plus-db-dev?retryWrites=true&w=majority"
 );
 const Courses = mongoose.model("courses", courseSchema);
 const Resources = mongoose.model("resources", resourceSchema);
