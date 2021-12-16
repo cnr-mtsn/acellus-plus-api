@@ -15,98 +15,80 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(morgan("[@:remote-addr] => [:method :url] => [status: :status] => [in :total-time ms] "));
 
-mongoose.connect(
-	"mongodb+srv://conner:qea7VEF7cve3fwq.gzk@acellus-plus-db-dev.z2tdi.mongodb.net/acellus-plus-db-dev?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.DB_URL);
 const Courses = mongoose.model("courses", courseSchema);
 const Resources = mongoose.model("resources", resourceSchema);
 const Textbooks = mongoose.model("textbooks", textbookSchema);
 const Feedback = mongoose.model("feedback", feedbackSchema);
+const getAllRoutes = [
+	{ path: "/api/courses", collection: Courses },
+	{ path: "/api/resources", collection: Resources },
+	{ path: "/api/textbook", collection: Textbooks },
+	{ path: "/api/feedback", collection: Feedback },
+];
+const deleteAllRoutes = [
+	{ path: "/api/delete/courses", collection: Courses },
+	{ path: "/api/delete/resources", collection: Resources },
+	{ path: "/api/delete/textbook", collection: Textbooks },
+	{ path: "/api/delete/feedback", collection: Feedback },
+];
+const postNewRoutes = [{ path: "/api/postFeedback", collection: Feedback, item: "Feedback" }];
+const images = [
+	{ path: "/images/android-chrome-192x192.png", file: "./images/android-chrome-192x192.png" },
+	{ path: "/images/android-chrome-512x512.png", file: "./images/android-chrome-512x512.png" },
+	{ path: "/images/apple-touch-icon.png", file: "./images/apple-touch-icon.png" },
+	{ path: "/images/favicon-16x16.png", file: "./images/favicon-16x16.png" },
+	{ path: "/images/favicon-32x32.png", file: "./images/favicon-32x32.png" },
+	{ path: "/favicon.ico", file: "./images/favicon.ico" },
+	{ path: "/images/acellus-logo.png", file: "./images/acellus-logo.png" },
+	{ path: "/images/blue-background.jpg", file: "./images/blue-background.jpg" },
+];
 
 /****** API ROUTES  ******/
 app.get("/", (req, res) => {
 	res.sendFile("/index.html", { root: __dirname });
 });
 // return courses
-app.get("/api/courses", (req, res) => {
-	Courses.find({}, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			res.send(result);
-		}
+getAllRoutes.forEach(route => {
+	app.get(route.path, (req, res) => {
+		route.collection.find({}, (err, result) => {
+			if (err) {
+				console.log(err);
+			} else res.send(result);
+		});
 	});
 });
-// return resources
-app.get("/api/resources", (req, res) => {
-	Resources.find({}, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			res.send(result);
-		}
+deleteAllRoutes.forEach(route => {
+	app.get(route.path, (req, res) => {
+		route.collection.deleteMany({}, (err, result) => {
+			if (err) {
+				console.log(err);
+			} else res.send(result);
+		});
 	});
 });
-// return resources
-app.get("/api/textbook", (req, res) => {
-	Textbooks.find({}, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			res.send(result);
-		}
+postNewRoutes.forEach(route => {
+	app.post(route.path, (req, res) => {
+		const newObj = new route.collection(req.body);
+		newObj.save((err, result) => {
+			if (err) {
+				res.send({ message: `${route.item} could not be submitted - please try again later` });
+			} else {
+				res.send({ message: `${route.item} recieved! Thank you for helping us improve the platform.` });
+			}
+		});
 	});
 });
-// return feedback messages
-app.get("/api/feedback", (req, res) => {
-	Feedback.find({}, (err, result) => {
-		if (err) {
-			console.log(err);
-		} else {
-			res.send(result);
-		}
-	});
-});
-app.post("/api/postFeedback", (req, res) => {
-	console.log(req.body);
-	const newFeedback = new Feedback(req.body);
-	newFeedback.save((err, result) => {
-		if (err) {
-			res.send({ message: "Feedback could not be submitted - please try again later" });
-		} else {
-			res.send({ message: "Feedback Recieved! Thank you for helping us improve the platform." });
-		}
-	});
-});
-/****** API ROUTES  ******/
-
 /*** IMAGES ***/
-app.get("/images/android-chrome-192x192.png", (req, res) => {
-	res.sendFile("./images/android-chrome-192x192.png", { root: __dirname });
-});
-app.get("/images/android-chrome-192x192.png", (req, res) => {
-	res.sendFile("./images/android-chrome-192x192.png", { root: __dirname });
-});
-app.get("/images/apple-touch-icon.png", (req, res) => {
-	res.sendFile("./images/apple-touch-icon.png", { root: __dirname });
-});
-app.get("/images/favicon-16x16.png", (req, res) => {
-	res.sendFile("./images/favicon-16x16.png", { root: __dirname });
-});
-app.get("/images/favicon-32x32.png", (req, res) => {
-	res.sendFile("./images/favicon-32x32.png", { root: __dirname });
-});
-app.get("/favicon.ico", (req, res) => {
-	res.sendFile("./images/favicon.ico", { root: __dirname });
-});
-app.get("/images/acellus-logo.png", (req, res) => {
-	res.sendFile("./images/acellus-logo.png", { root: __dirname });
-});
-app.get("/images/blue-background.jpg", (req, res) => {
-	res.sendFile("./images/blue-background.jpg", { root: __dirname });
+images.forEach(image => {
+	app.get(image.path, (req, res) => {
+		res.sendFile(image.file, { root: __dirname });
+	});
 });
 
 // starting the server
 app.listen(process.env.PORT || 4000, () => {
 	console.log(`listening at [ http://localhost:4000 ]`);
 });
+
+module.exports = { getAllRoutes };
